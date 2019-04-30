@@ -36,7 +36,7 @@ def cv2_template_matching(template,frame):
 if __name__ == "__main__":
 
 	slides_img = load_img_from_folder(sys.argv[1])
-
+	file = open("20171096.txt","a")
 	for image in os.listdir(input_arr[2]):
 		img_rgb = cv2.imread(os.path.join(input_arr[2],image))
 		img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
@@ -46,11 +46,12 @@ if __name__ == "__main__":
 			# print(slide)
 			match_perc = cv2_template_matching(slides_img[index],img_gray)
 			res.append(match_perc[0])
+			print(res)
 			if match_perc > max_perc:
 				max_perc = match_perc
 				slide_ans = slides_name[index]
-		
-		print(image,slide_ans)
+		write_ans = image + " " + slide_ans + "\n"
+		file.write(write_ans)
 
 
 
