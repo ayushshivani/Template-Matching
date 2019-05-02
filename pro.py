@@ -46,11 +46,13 @@ if __name__ == "__main__":
 			# print(slide)
 			match_perc = cv2_template_matching(slides_img[index],img_gray)
 			res.append(match_perc[0])
-			print(res)
-			if match_perc > max_perc:
-				max_perc = match_perc
-				slide_ans = slides_name[index]
+			# print(res)
+			if len(match_perc[0]) ==1:
+				if match_perc > max_perc:
+					max_perc = match_perc
+					slide_ans = slides_name[index]
 		write_ans = image + " " + slide_ans + "\n"
+		print(image)
 		file.write(write_ans)
 
 

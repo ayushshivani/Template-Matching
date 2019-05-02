@@ -41,7 +41,7 @@ done
 
 C=0
 Ci=0
-for((i=1;i<=200;i++))
+for((i=1;i<=50;i++))
 do 
 	c=0
 	val=$RANDOM
